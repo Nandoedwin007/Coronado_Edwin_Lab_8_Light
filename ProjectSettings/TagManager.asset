@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - SceneObject
+  - Habitacion2
   layers:
   - Default
   - TransparentFX
