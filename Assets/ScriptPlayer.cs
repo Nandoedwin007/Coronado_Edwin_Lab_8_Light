@@ -14,6 +14,7 @@ public class ScriptPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Cargamos el primer texto al Texto del UI
         objetoActual.text = NombreObjeto;
     }
 
@@ -27,8 +28,10 @@ public class ScriptPlayer : MonoBehaviour
         Ray myRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hitInfo;
 
+        //Raycast con un laro máximo de 3Mts
         if (Physics.Raycast(myRay, out hitInfo, 3.0f))
         {
+            //Solo detecta los objetos que tiene el Tag, en caso de no tenerlo mostraría nombre de cualquier objeto (Paredes)
             if (hitInfo.collider.gameObject.tag == "SceneObject")
             {
                 Debug.DrawRay(transform.position, hitInfo.point, Color.green);
@@ -48,12 +51,16 @@ public class ScriptPlayer : MonoBehaviour
         }
         else
         {
+            //If que en caso de no encontrar ningún objeto deshabilita el texto del UI y lo limpia
             objetoActual.enabled = false;
             objetoActual.text = "";
         }
 
+        //Aquí es donde se prende y se apaga la flashlight
+
         if (Input.GetMouseButtonDown(0))
         {
+
             linternaSpot.enabled = lightOn;
             lightOn = !lightOn;
         }

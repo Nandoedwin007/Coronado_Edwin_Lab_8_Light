@@ -14,6 +14,8 @@ public class PointLightScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Este script es el que cambia la intensidad de la luz, lo hace siempre pero 
+        //pero solo se obsrva cuando la luz está habilitada
         pointLight.intensity = Mathf.Sin(Time.time*5)*5;
     }
 }

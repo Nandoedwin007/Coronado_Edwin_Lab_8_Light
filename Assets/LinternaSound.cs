@@ -17,6 +17,7 @@ public class LinternaSound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Al presionarl eel clcik hacemos el sonido pero reaalmente no prendemos, solo se reproduce el sonido 
         if (Input.GetMouseButtonDown(0))
         {
             audioSrc.PlayOneShot(SoundToPlayClick, 1f);
@@ -27,7 +28,7 @@ public class LinternaSound : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
- 
+        //Si entra en la habitación se prende la luz
         if (other.gameObject.tag == "Habitacion2")
         {
             luzHabitacion.enabled = true;
@@ -41,6 +42,7 @@ public class LinternaSound : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        //Al salir de la habitacion se apaga la luz
         if (other.gameObject.tag == "Habitacion2")
         {
             luzHabitacion.enabled = false;
